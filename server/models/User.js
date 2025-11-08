@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema({
   studentId: {
     type: String,
     required: function() {
-      return this.role === 'student';
+      return this.role === 'student'; 
     },
     unique: true,
     uppercase: true,
