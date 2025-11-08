@@ -12,14 +12,14 @@ const server = http.createServer(app);
 
 const io = socketIo(server, {
   cors: {
-    origin: process.env.CLIENT_ORIGIN || "https://scnbcp-backend.onrender.com",
+    origin: process.env.CLIENT_ORIGIN || "http://localhost:3000",
     methods: ["GET", "POST"]
   }
 });
 
 // Middleware
 app.use(cors({
-  origin: process.env.CLIENT_ORIGIN || "https://scnbcp-backend.onrender.com"
+  origin: process.env.CLIENT_ORIGIN || "http://localhost:3000"
 }));
 app.use(express.json());
 app.use('/uploads', express.static('uploads'));

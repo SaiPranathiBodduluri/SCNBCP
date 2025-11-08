@@ -32,6 +32,7 @@ export const AuthProvider = ({ children }) => {
       const response = await axios.get('/api/auth/me');
       setUser(response.data.user);
     } catch (error) {
+      console.error("⚠️ Failed to fetch user:", error.response?.data?.message || error.message);
       storage.removeToken();
       setToken(null);
       delete axios.defaults.headers.common['Authorization'];
@@ -44,39 +45,47 @@ export const AuthProvider = ({ children }) => {
     try {
       console.log('🔐 Attempting login for:', loginId);
       const response = await axios.post('/api/auth/login', { loginId, password });
+
+      console.log("📦 Login response data:", response.data);
+
       const { token, user } = response.data;
-      
+
+      // Check if response contains both token and user
+      if (!user || !token) {
+        console.warn("⚠️ Missing user or token in login response:", response.data);
+        return { success: false, message: 'Invalid response from server' };
+      }
+
       console.log('✅ Login successful!');
       console.log('User:', user.name, user.role);
-      
-      // Save token using storage utility
+
+      // Save token
       storage.setToken(token);
-      
-      // Verify token was saved
+
       const hasToken = storage.hasToken();
       console.log('Token saved and verified:', hasToken ? 'YES ✅' : 'NO ❌');
-      
+
       setToken(token);
       setUser(user);
+
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      
+
       return { success: true };
     } catch (error) {
       console.error('❌ Login failed:', error.response?.data?.message || error.message);
-      return { 
-        success: false, 
-        message: error.response?.data?.message || 'Login failed' 
+      return {
+        success: false,
+        message: error.response?.data?.message || 'Login failed'
       };
     }
   };
-
-
 
   const logout = () => {
     storage.removeToken();
     setToken(null);
     setUser(null);
     delete axios.defaults.headers.common['Authorization'];
+    console.log("👋 Logged out successfully.");
   };
 
   const value = {
