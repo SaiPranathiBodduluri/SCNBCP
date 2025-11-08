@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: scnbcp-backend
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        value: mongodb+srv://your-mongo-uri-here
+      - key: JWT_SECRET
+        value: your-jwt-secret-here
+      - key: CLIENT_ORIGIN
+        value: https://scnbcp-client.vercel.app
+      - key: SENDGRID_API_KEY
+        value: your-sendgrid-api-key-here
+      - key: TWILIO_ACCOUNT_SID
+        value: your-twilio-sid-here
+      - key: TWILIO_AUTH_TOKEN
+        value: your-twilio-token-here
+      - key: TWILIO_PHONE_NUMBER
+        value: your-twilio-phone-number-here
