@@ -19,7 +19,7 @@ export const SocketProvider = ({ children }) => {
 
   useEffect(() => {
     if (user) {
-      const newSocket = io('https://scnbcp-backend.onrender.com');
+      const newSocket = io(process.env.REACT_APP_SOCKET_URL || 'https://scnbcp-backend.onrender.com');
       
       newSocket.on('connect', () => {
         console.log('Connected to server');

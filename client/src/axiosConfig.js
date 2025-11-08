@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Set base URL for API calls
-axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
+axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL || 'https://scnbcp-backend.onrender.com';
 
 // Add a request interceptor to automatically add the token
 axios.interceptors.request.use(
