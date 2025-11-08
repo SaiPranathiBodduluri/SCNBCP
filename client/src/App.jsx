@@ -3,20 +3,20 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { AuthProvider } from './contexts/AuthContext';
-import { SocketProvider } from './contexts/SocketContext';
-import ProtectedRoute from './components/ProtectedRoute';
+import { AuthProvider } from './contexts/AuthContext.jsx';
+import { SocketProvider } from './contexts/SocketContext.jsx';
+import ProtectedRoute from './components/ProtectedRoute.jsx';
 
 // Pages
-import HomePage from './pages/HomePage';
-import StudentLoginPage from './pages/StudentLoginPage';
-import FacultyLoginPage from './pages/FacultyLoginPage';
-import AdminLoginPage from './pages/AdminLoginPage';
-import ForgotPasswordPage from './pages/ForgotPasswordPage';
-import Dashboard from './pages/Dashboard';
-import NoticesPage from './pages/NoticesPage';
-import CreateNoticePage from './pages/CreateNoticePage';
-import NoticeDetailPage from './pages/NoticeDetailPage';
+import HomePage from './pages/HomePage.jsx';
+import StudentLoginPage from './pages/StudentLoginPage.jsx';
+import FacultyLoginPage from './pages/FacultyLoginPage.jsx';
+import AdminLoginPage from './pages/AdminLoginPage.jsx';
+import ForgotPasswordPage from './pages/ForgotPasswordPage.jsx';
+import Dashboard from './pages/Dashboard.jsx';
+import NoticesPage from './pages/NoticesPage.jsx';
+import CreateNoticePage from './pages/CreateNoticePage.jsx';
+import NoticeDetailPage from './pages/NoticeDetailPage.jsx';
 
 function App() {
   return (

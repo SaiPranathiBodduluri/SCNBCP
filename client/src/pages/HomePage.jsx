@@ -5,20 +5,6 @@ import { Users, Bell, Shield, Clock } from 'lucide-react';
 const HomePage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-center items-center py-6">
-            <div className="text-center">
-              <h1 className="text-2xl font-bold text-gray-900">
-                Smart College Notice Board & Communication Portal
-              </h1>
-              <p className="text-vignan-orange font-semibold">Vignan University</p>
-            </div>
-          </div>
-        </div>
-      </header>
-
       {/* Hero Section */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -35,7 +21,7 @@ const HomePage = () => {
             />
           </div>
           <h2 className="text-5xl font-bold text-gray-900 mb-6">
-            Revolutionizing Campus Communication
+            Smart College Notice Board & Communication Portal
           </h2>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
             Stay connected with real-time notices, announcements, and updates. 
